@@ -1,14 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Geolocation demo
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button ion-button (click)="startLocationTrack()">Start location track</button>
+  <button ion-button (click)="stopLocationTrack()">Stop location track</button>
+  <p>Latest latitude: {{ latitude }}</p>
+  <p>Latest longitude: {{ longitude }}</p>
+  <p>Time: {{ timestamp }}</p>
+  
+  <h3>List of past locations: </h3>
+  <ion-list *ngFor = "let el of pastLocations">
+    <ion-item>
+      <ion-label>Latitude: {{ el.latitude }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Longitude: {{ el.longitude }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Time: {{ el.timestamp }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
